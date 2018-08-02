@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet var cameraView: UIView!
     @IBOutlet weak var imgForFilter: UIImageView!
     @IBOutlet weak var collView: UICollectionView!
-
+    @IBOutlet var btnCaptureimage: UIButton!
+    
     fileprivate var smallImage: UIImage?
     
     fileprivate var orignalImage: UIImage?
@@ -65,25 +66,17 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         imagePicker?.delegate = self
-        
+    
         if #available(iOS 11.0, *) {
 //            self.cameraView.contentInsetAdjustmentBehavior = .never
         } else {
             automaticallyAdjustsScrollViewInsets = false
         }
-//        let btnRightMenu = UIButton.init(type: .custom)
-//        btnRightMenu.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30) //CGRectMake(0, 0, 30, 30)
-////        btnRightMenu.setImage(#imageLiteral(resourceName: "Img-Ticket-Black"), for: UIControlState.normal)
-//        btnRightMenu.setTitle("Add Image", for: .normal)
-//        btnRightMenu.addTarget(self, action:#selector(self.btnRightMenu), for:.touchUpInside)
-//        btnRightMenu.backgroundColor = UIColor.red
-//        let barRightMenuBtn = UIBarButtonItem.init(customView: btnRightMenu)
-//        self.navigationItem.rightBarButtonItem = barRightMenuBtn
+
+        btnCaptureimage.layer.cornerRadius = 19.0
         
-//        let testUIBarButtonItem = UIBarButtonItem(image: UIImage(named: "test.png"), style: .plain, target: self, action: #selector(ViewController.clickButton))
         let barbuttonItem = UIBarButtonItem(title: "Next", style:.plain, target: self, action:#selector(btnRightMenu))
         self.navigationItem.rightBarButtonItem  = barbuttonItem
-        
         self.imgForFilter.isHidden = true
 
          self.openCamera()
@@ -194,10 +187,17 @@ class ViewController: UIViewController {
         filter?.setValue(coreImage, forKey: kCIInputImageKey)
         
         if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
+            
             let cgimgresult = context.createCGImage(output, from: output.extent)
+            
             let result = UIImage (cgImage: cgimgresult!)
+            
             smallImage = result
         }
+        let newImage  = UIImage(ciImage: (filter?.outputImage)!, scale: (smallImage?.scale)!, orientation:(smallImage?.imageOrientation)!)
+        
+        smallImage = newImage
+        
         return smallImage!
     }
 }
@@ -237,8 +237,11 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
         resetFilter()
         let filterIndex = indexPath.row
         if filterIndex != 0 {
+            
             let cgimg = imgForFilter.image?.cgImage
+            
             imgForFilter.image = self.imageFilter(filterName: self.filterNameList[indexPath.item], cgImage: cgimg!)
+            
         } else {
             imgForFilter?.image = self.orignalImage
         }
