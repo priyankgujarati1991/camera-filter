@@ -132,7 +132,7 @@
                             <constraint firstItem="Whb-Nd-qUd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ukg-96-DpC"/>
                             <constraint firstItem="8cF-hx-wV8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vbM-9L-4xv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sjj-2C-Pl6" secondAttribute="trailing" constant="141" id="whb-XH-ejF"/>
-                            <constraint firstItem="Whb-Nd-qUd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wjP-pp-F2n"/>
+                            <constraint firstItem="Whb-Nd-qUd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="64" id="wjP-pp-F2n"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

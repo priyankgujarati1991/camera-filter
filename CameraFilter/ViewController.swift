@@ -67,20 +67,39 @@ class ViewController: UIViewController {
         
         imagePicker?.delegate = self
     
-        if #available(iOS 11.0, *) {
-//            self.cameraView.contentInsetAdjustmentBehavior = .never
-        } else {
-            automaticallyAdjustsScrollViewInsets = false
-        }
+//        if #available(iOS 11.0, *) {
+////            self.cameraView.contentInsetAdjustmentBehavior = .never
+//        } else {
+//            automaticallyAdjustsScrollViewInsets = false
+//        }
 
         btnCaptureimage.layer.cornerRadius = 19.0
         
         let barbuttonItem = UIBarButtonItem(title: "Next", style:.plain, target: self, action:#selector(btnRightMenu))
+        
         self.navigationItem.rightBarButtonItem  = barbuttonItem
+        
         self.imgForFilter.isHidden = true
 
          self.openCamera()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapOnCameraView(_:)))
+        
+        tap.numberOfTapsRequired = 2
+        
+        cameraView.addGestureRecognizer(tap)
+        
+        cameraView.isUserInteractionEnabled = true
+        
+    }
+    
+    @objc func doubleTapOnCameraView(_ sender: UITapGestureRecognizer) {
+        do {
+            try cameraController.switchCameras()
+        }
+        catch {
+            print(error)
+        }
     }
 
     func checkPermission(){
@@ -142,32 +161,6 @@ class ViewController: UIViewController {
             }
             try? self.cameraController.displayPreview(on: self.cameraView)
         }
-        
-//        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInDuoCamera, AVCaptureDevice.DeviceType.builtInTelephotoCamera,AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: AVCaptureDevice.Position.unspecified)
-//        for device in (deviceDiscoverySession.devices) {
-//            if(device.position == AVCaptureDevice.Position.back){
-//                do{
-//                    let input = try AVCaptureDeviceInput(device: device)
-//                    if(captureSession.canAddInput(input)){
-//                        captureSession.addInput(input);
-//
-//                        if(captureSession.canAddOutput(sessionOutput)){
-//                            captureSession.addOutput(sessionOutput);
-//                            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession);
-//                            previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-//                            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait;
-//                            previewLayer.frame = self.cameraView.bounds
-//                            self.cameraView.layer.addSublayer(previewLayer);
-//
-//                        }
-//                    }
-//                }
-//                catch{
-//                    print("exception!");
-//                }
-//            }
-//        }
-//        captureSession.startRunning()
     }
     
     
@@ -235,13 +228,18 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         resetFilter()
+        
         let filterIndex = indexPath.row
+        
         if filterIndex != 0 {
             
-            let cgimg = imgForFilter.image?.cgImage
-            
-            imgForFilter.image = self.imageFilter(filterName: self.filterNameList[indexPath.item], cgImage: cgimg!)
-            
+            if imgForFilter.image != nil{
+                
+                let cgimg = imgForFilter.image?.cgImage
+                
+                imgForFilter.image = self.imageFilter(filterName: self.filterNameList[indexPath.item], cgImage: cgimg!)
+            }
+        
         } else {
             imgForFilter?.image = self.orignalImage
         }
@@ -256,38 +254,4 @@ extension ViewController:UIImagePickerControllerDelegate,UINavigationControllerD
             imgForFilter.image = (possibleImage as AnyObject).image
         }
     }
-    
 }
-
-extension UIImage{
-    func fixOrientation() -> UIImage {
-        if self.imageOrientation == UIImageOrientation.up {
-            return self
-        }
-        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
-        if let normalizedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext() {
-            UIGraphicsEndImageContext()
-            return normalizedImage
-        } else {
-            return self
-        }
-    }
-}
-
-//extension ViewController: AVCapturePhotoCaptureDelegate {
-//    public func photoOutput(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?,
-//                            resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Swift.Error?) {
-//
-//         if let buffer = photoSampleBuffer, let data = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: buffer, previewPhotoSampleBuffer: nil),
-//            let image = UIImage(data: data) {
-//
-//
-//        }
-//
-//        else {
-//
-//        }
-//    }
-//
-//}
