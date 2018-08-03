@@ -15,8 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var imgForFilter: UIImageView!
     @IBOutlet weak var collView: UICollectionView!
     @IBOutlet var btnCaptureimage: UIButton!
-    
-    @IBOutlet var imgCustom: UIImageView!
+
     fileprivate var smallImage: UIImage?
     
     fileprivate var orignalImage: UIImage?
@@ -147,15 +146,14 @@ class ViewController: UIViewController {
     }
     
     @objc func btnRightMenu(){
+    
         
-        self.imgCustom.image = smallImage
-        
-//        let savePhotoViewController = AppDelegate.storyboard.instantiateViewController(withIdentifier: "savephotoviewcontroller") as! SavePhotoViewController
-////        let cgImage = smallImage?.cgImage
-//        savePhotoViewController.imgPhoto = cgImageForTransfer!
-//        savePhotoViewController.imgChange = smallImage!
-//        savePhotoViewController.filterName = filterNameOfPhotoEffect
-//        self.navigationController?.pushViewController(savePhotoViewController, animated: true)
+        let savePhotoViewController = AppDelegate.storyboard.instantiateViewController(withIdentifier: "savephotoviewcontroller") as! SavePhotoViewController
+//        let cgImage = smallImage?.cgImage
+        savePhotoViewController.imgPhoto = cgImageForTransfer!
+        savePhotoViewController.imgChange = smallImage!
+        savePhotoViewController.filterName = filterNameOfPhotoEffect
+        self.navigationController?.pushViewController(savePhotoViewController, animated: true)
         
 //        self.imgForFilter.isHidden = true
 //        self.cameraView.isHidden = false
