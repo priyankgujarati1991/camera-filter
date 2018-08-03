@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var collView: UICollectionView!
     @IBOutlet var btnCaptureimage: UIButton!
     
+    @IBOutlet var imgCustom: UIImageView!
     fileprivate var smallImage: UIImage?
     
     fileprivate var orignalImage: UIImage?
@@ -33,6 +34,10 @@ class ViewController: UIViewController {
     var photoOutput: AVCapturePhotoOutput?
     
     let cameraController = CameraController()
+    
+    var filterNameOfPhotoEffect:String = ""
+    
+    var cgImageForTransfer :CGImage?
     
     fileprivate let filterNameList = [
         "No Filter",
@@ -91,6 +96,17 @@ class ViewController: UIViewController {
         
         cameraView.isUserInteractionEnabled = true
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = false
+        
+        self.imgForFilter.isHidden = true
+        self.cameraView.isHidden = false
+
     }
     
     @objc func doubleTapOnCameraView(_ sender: UITapGestureRecognizer) {
@@ -130,10 +146,20 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-   @objc func btnRightMenu(){
-        self.imgForFilter.isHidden = true
-        self.cameraView.isHidden = false
-    
+    @objc func btnRightMenu(){
+        
+        self.imgCustom.image = smallImage
+        
+//        let savePhotoViewController = AppDelegate.storyboard.instantiateViewController(withIdentifier: "savephotoviewcontroller") as! SavePhotoViewController
+////        let cgImage = smallImage?.cgImage
+//        savePhotoViewController.imgPhoto = cgImageForTransfer!
+//        savePhotoViewController.imgChange = smallImage!
+//        savePhotoViewController.filterName = filterNameOfPhotoEffect
+//        self.navigationController?.pushViewController(savePhotoViewController, animated: true)
+        
+//        self.imgForFilter.isHidden = true
+//        self.cameraView.isHidden = false
+        
     }
     
     @IBAction func btnCapturePhoto(_ sender: Any) {
@@ -191,6 +217,10 @@ class ViewController: UIViewController {
         
         smallImage = newImage
         
+        filterNameOfPhotoEffect = ""
+        
+        filterNameOfPhotoEffect = filterName
+        
         return smallImage!
     }
 }
@@ -236,6 +266,8 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
             if imgForFilter.image != nil{
                 
                 let cgimg = imgForFilter.image?.cgImage
+                
+                cgImageForTransfer = cgimg
                 
                 imgForFilter.image = self.imageFilter(filterName: self.filterNameList[indexPath.item], cgImage: cgimg!)
             }

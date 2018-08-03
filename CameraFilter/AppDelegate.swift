@@ -11,6 +11,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    static let shared = UIApplication.shared.delegate as! AppDelegate
+    static let storyboard = UIStoryboard(name: "Main", bundle: nil)
     var window: UIWindow?
 
 

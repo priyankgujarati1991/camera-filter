@@ -148,6 +148,68 @@
             </objects>
             <point key="canvasLocation" x="114.375" y="114.08450704225352"/>
         </scene>
+        <!--Save Photo View Controller-->
+        <scene sceneID="bSy-5g-Ai3">
+            <objects>
+                <viewController storyboardIdentifier="savephotoviewcontroller" id="brR-tD-j4p" customClass="SavePhotoViewController" customModule="CameraFilter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZCw-fX-noj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7VF-7A-vvx">
+                                <rect key="frame" x="0.0" y="20" width="320" height="498"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bgv-k2-1nk">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVv-Eo-OlP">
+                                        <rect key="frame" x="142" y="10" width="36" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="btnSendPressed:" destination="brR-tD-j4p" eventType="touchUpInside" id="pyb-wz-Tgm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZcK-Ml-Pi3">
+                                        <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="X"/>
+                                        <connections>
+                                            <action selector="btnCancelPressed:" destination="brR-tD-j4p" eventType="touchUpInside" id="WYM-4j-Iza"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3uu-K8-1VL">
+                                        <rect key="frame" x="268" y="10" width="42" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Pencil"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MqD-P1-AxA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7VF-7A-vvx" firstAttribute="top" secondItem="MPv-eh-PFd" secondAttribute="top" id="9DO-XR-XTo"/>
+                            <constraint firstItem="Bgv-k2-1nk" firstAttribute="leading" secondItem="MPv-eh-PFd" secondAttribute="leading" id="Dsv-2n-WhS"/>
+                            <constraint firstItem="7VF-7A-vvx" firstAttribute="trailing" secondItem="MPv-eh-PFd" secondAttribute="trailing" id="WgH-UJ-dx9"/>
+                            <constraint firstItem="Bgv-k2-1nk" firstAttribute="trailing" secondItem="MPv-eh-PFd" secondAttribute="trailing" id="Wtj-iV-fPm"/>
+                            <constraint firstItem="7VF-7A-vvx" firstAttribute="leading" secondItem="MPv-eh-PFd" secondAttribute="leading" id="e6w-5i-B9e"/>
+                            <constraint firstItem="Bgv-k2-1nk" firstAttribute="bottom" secondItem="MPv-eh-PFd" secondAttribute="bottom" id="gwS-WM-0py"/>
+                            <constraint firstItem="Bgv-k2-1nk" firstAttribute="top" secondItem="7VF-7A-vvx" secondAttribute="bottom" id="pV2-wX-skQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MPv-eh-PFd"/>
+                    </view>
+                    <connections>
+                        <outlet property="imgFilterView" destination="7VF-7A-vvx" id="U87-Tc-8Ni"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tws-zG-3GI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="973.125" y="104.5774647887324"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="sJr-8U-swN">
             <objects>
