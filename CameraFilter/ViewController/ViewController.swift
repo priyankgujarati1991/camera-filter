@@ -34,10 +34,6 @@ class ViewController: UIViewController {
     
     let cameraController = CameraController()
     
-    var filterNameOfPhotoEffect:String = ""
-    
-    var cgImageForTransfer :CGImage?
-    
     fileprivate let filterNameList = [
         "No Filter",
         "CIPhotoEffectChrome",
@@ -146,13 +142,8 @@ class ViewController: UIViewController {
     }
     
     @objc func btnRightMenu(){
-    
-        
         let savePhotoViewController = AppDelegate.storyboard.instantiateViewController(withIdentifier: "savephotoviewcontroller") as! SavePhotoViewController
-//        let cgImage = smallImage?.cgImage
-        savePhotoViewController.imgPhoto = cgImageForTransfer!
         savePhotoViewController.imgChange = smallImage!
-        savePhotoViewController.filterName = filterNameOfPhotoEffect
         self.navigationController?.pushViewController(savePhotoViewController, animated: true)
         
 //        self.imgForFilter.isHidden = true
@@ -211,15 +202,12 @@ class ViewController: UIViewController {
             
             smallImage = result
         }
-        let newImage  = UIImage(ciImage: (filter?.outputImage)!, scale: (smallImage?.scale)!, orientation:(smallImage?.imageOrientation)!)
+        let imageAfterFilter = smallImage?.rotate(radians: .pi/2)
+//        let newImage  = UIImage(ciImage: (filter?.outputImage)!, scale: (smallImage?.scale)!, orientation:(smallImage?.imageOrientation)!)
+//
+//        smallImage = newImage
         
-        smallImage = newImage
-        
-        filterNameOfPhotoEffect = ""
-        
-        filterNameOfPhotoEffect = filterName
-        
-        return smallImage!
+        return imageAfterFilter!
     }
 }
 
@@ -265,8 +253,6 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
                 
                 let cgimg = imgForFilter.image?.cgImage
                 
-                cgImageForTransfer = cgimg
-                
                 imgForFilter.image = self.imageFilter(filterName: self.filterNameList[indexPath.item], cgImage: cgimg!)
             }
         
@@ -283,5 +269,29 @@ extension ViewController:UIImagePickerControllerDelegate,UINavigationControllerD
         if let possibleImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             imgForFilter.image = (possibleImage as AnyObject).image
         }
+    }
+}
+
+extension UIImage {
+    func rotate(radians: Float) -> UIImage? {
+        var newSize = CGRect(origin: CGPoint.zero, size: self.size).applying(CGAffineTransform(rotationAngle: CGFloat(radians))).size
+        // Trim off the extremely small float value to prevent core graphics from rounding it up
+        newSize.width = floor(newSize.width)
+        newSize.height = floor(newSize.height)
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, true, self.scale)
+        let context = UIGraphicsGetCurrentContext()!
+        
+        // Move origin to middle
+        context.translateBy(x: newSize.width/2, y: newSize.height/2)
+        // Rotate around middle
+        context.rotate(by: CGFloat(radians))
+        
+        self.draw(in: CGRect(x: -self.size.width/2, y: -self.size.height/2, width: self.size.width, height: self.size.height))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 }

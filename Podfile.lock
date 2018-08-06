@@ -1,3 +1,20 @@
-PODFILE CHECKSUM: c0648b1dcb4a94ca8d2c9b62b0056da5f846d91f
+PODS:
+  - CropViewController (2.3.6)
+  - iOSPhotoEditor (0.5)
+
+DEPENDENCIES:
+  - CropViewController
+  - iOSPhotoEditor
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CropViewController
+    - iOSPhotoEditor
+
+SPEC CHECKSUMS:
+  CropViewController: e6d4bd512d15a1709e9ddf71fe7d98ffd05dda0f
+  iOSPhotoEditor: 0ddc84bcef9fe73fe8cc45ac999b89e0aa207aea
+
+PODFILE CHECKSUM: b602844fcfa84f0b4606cb7b4d3906fb922b3784
 
 COCOAPODS: 1.5.3
