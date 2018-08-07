@@ -152,9 +152,9 @@ extension CameraController {
         
 //        CGPoint(x: view.frame.origin.x, y: view.frame.origin.y)
         
-        self.previewLayer?.captureDevicePointConverted(fromLayerPoint: CGPoint(x: view.frame.origin.x, y: view.frame.origin.y))
-        self.previewLayer?.layerPointConverted(fromCaptureDevicePoint: CGPoint(x: view.frame.origin.x, y: view.frame.origin.y))
-        self.previewLayer?.layerRectConverted(fromMetadataOutputRect: view.frame)
+//        self.previewLayer?.captureDevicePointConverted(fromLayerPoint: CGPoint(x: view.frame.origin.x, y: view.frame.origin.y))
+//        self.previewLayer?.layerPointConverted(fromCaptureDevicePoint: CGPoint(x: view.frame.origin.x, y: view.frame.origin.y))
+//        self.previewLayer?.layerRectConverted(fromMetadataOutputRect: view.frame)
         
         var frame = view.frame
         frame.origin.y = 0
