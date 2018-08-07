@@ -66,12 +66,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         imagePicker?.delegate = self
-    
-//        if #available(iOS 11.0, *) {
-////            self.cameraView.contentInsetAdjustmentBehavior = .never
-//        } else {
-//            automaticallyAdjustsScrollViewInsets = false
-//        }
 
         btnCaptureimage.layer.cornerRadius = 19.0
         

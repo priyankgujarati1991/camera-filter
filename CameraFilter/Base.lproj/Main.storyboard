@@ -182,6 +182,9 @@
                                         <rect key="frame" x="268" y="10" width="42" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Pencil"/>
+                                        <connections>
+                                            <action selector="btnPenilPressed:" destination="brR-tD-j4p" eventType="touchUpInside" id="Zsx-Nx-Abj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

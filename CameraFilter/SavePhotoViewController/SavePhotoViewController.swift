@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import CropViewController
 import iOSPhotoEditor
-class SavePhotoViewController: UIViewController,PhotoEditorDelegate{
+class SavePhotoViewController: UIViewController,PhotoEditorDelegate,CropViewControllerDelegate{
    
     
 
@@ -54,6 +54,9 @@ class SavePhotoViewController: UIViewController,PhotoEditorDelegate{
     }
     
     
+    @IBAction func btnPenilPressed(_ sender: Any) {
+        self.addTextToPhoto()
+    }
     
     func addTextToPhoto(){
         let photoEditor = PhotoEditorViewController(nibName:"PhotoEditorViewController",bundle: Bundle(for: PhotoEditorViewController.self))
@@ -68,7 +71,7 @@ class SavePhotoViewController: UIViewController,PhotoEditorDelegate{
 //        photoEditor.stickers.append(UIImage(named: "sticker" )!)
         
         //Optional: To hide controls - array of enum control
-        photoEditor.hiddenControls = [.sticker, .draw, .share]
+        photoEditor.hiddenControls = [.sticker, .draw, .share, .crop]
         
         //Optional: Colors for drawing and Text, If not set default values will be used
         photoEditor.colors = [.red,.blue,.green]
@@ -84,21 +87,35 @@ class SavePhotoViewController: UIViewController,PhotoEditorDelegate{
     func canceledEditing() {
         
     }
-
+    func presentCropViewController() {
+        let image: UIImage = imgFilterView.image! //Load an image
+        
+        let cropViewController = CropViewController(image: image)
+        cropViewController.delegate = self
+        cropViewController.aspectRatioPickerButtonHidden = true
+        present(cropViewController, animated: true, completion: nil)
+    }
+    
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        // 'image' is the newly cropped version of the original image
+        imgFilterView.image = image
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func btnSendPressed(_ sender: UIButton) {
 //        self.addTextToPhoto()
-        sender.isSelected = !sender.isSelected
-        UIView.animate(withDuration: 1, animations: {
-            if sender.isSelected {
-                self.imgFilterView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
-            } else {
-//                self.imgFilterView.transform = CGAffineTransform(rotationAngle: (.pi * 1.5))
-                self.imgFilterView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
-//                self.imgFilterView.transform = CGAffineTransform(rotationAngle: 0)
-                
-            }
-        })
+        self.presentCropViewController()
+//        sender.isSelected = !sender.isSelected
+//        UIView.animate(withDuration: 1, animations: {
+//            if sender.isSelected {
+//                self.imgFilterView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+//            } else {
+////                self.imgFilterView.transform = CGAffineTransform(rotationAngle: (.pi * 1.5))
+//                self.imgFilterView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+////                self.imgFilterView.transform = CGAffineTransform(rotationAngle: 0)
+//
+//            }
+//        })
 //        self.imgFilterView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
 //        try? PHPhotoLibrary.shared().performChangesAndWait {
 //            PHAssetChangeRequest.creationRequestForAsset(from: (self.imgChange?.rotate(radians: .pi/2)!)!)
