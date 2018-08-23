@@ -95,8 +95,6 @@ class ViewController: UIViewController {
             
         }
         
-
-        
         btnCaptureimage.layer.cornerRadius = 19.0
         
         let barbuttonItem = UIBarButtonItem(title: "Next", style:.plain, target: self, action:#selector(btnRightMenu))
@@ -184,7 +182,7 @@ class ViewController: UIViewController {
             self.orignalImage = image
             
             self.imgForFilter.isHidden = false
-            
+            self.imgForFilter.contentMode = .scaleAspectFit
             self.imgForFilter.image = image
             
             self.cameraView.isHidden = true
@@ -251,7 +249,7 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
         
         let cgimg = smallImage?.cgImage
         
-        if indexPath.row != 0 {
+        if indexPath.row !=     0 {
             cell.imgFilter.image = self.imageFilter(filterName: self.filterNameList[indexPath.row], cgImage: cgimg!)
         }else
         {

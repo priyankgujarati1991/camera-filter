@@ -9,6 +9,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "Pods/CropViewController/Objective-C/TOCropViewController/Models/UIImage+CropRotate.m"
             timestampString = "555252491.724102"
             startingColumnNumber = "9223372036854775807"
@@ -17,6 +18,16 @@
             endingLineNumber = "37"
             landmarkName = "-croppedImageWithFrame:angle:circularClip:"
             landmarkType = "7">
+=======
+            filePath = "Pods/CropViewController/Swift/CropViewController/CropViewController.swift"
+            timestampString = "555316303.868309"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "332"
+            endingLineNumber = "332"
+            landmarkName = "doneButtonTitle"
+            landmarkType = "24">
+>>>>>>> 5fb9af4d665d9afcdf5ffa3be0f4f1ec76bfc175
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,6 +36,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "Pods/CropViewController/Objective-C/TOCropViewController/Models/UIImage+CropRotate.m"
             timestampString = "555252500.30047"
             startingColumnNumber = "9223372036854775807"
@@ -33,6 +45,16 @@
             endingLineNumber = "48"
             landmarkName = "-croppedImageWithFrame:angle:circularClip:"
             landmarkType = "7">
+=======
+            filePath = "Pods/CropViewController/Swift/CropViewController/CropViewController.swift"
+            timestampString = "555316303.8683881"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
+            landmarkName = "cancelButtonTitle"
+            landmarkType = "24">
+>>>>>>> 5fb9af4d665d9afcdf5ffa3be0f4f1ec76bfc175
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

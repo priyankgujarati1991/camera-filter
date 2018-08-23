@@ -41,9 +41,8 @@ extension CameraController {
         
         func configureCaptureDevices() throws {
             
-            if #available(iOS 10.2, *) {
-                
-                let session = AVCaptureDevice.DiscoverySession(deviceTypes:  [.builtInDuoCamera, AVCaptureDevice.DeviceType.builtInTelephotoCamera,.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .unspecified)
+            if#available(iOS 11.1, *) {
+                let session = AVCaptureDevice.DiscoverySession(deviceTypes:  [AVCaptureDevice.DeviceType.builtInTelephotoCamera,.builtInWideAngleCamera,AVCaptureDevice.DeviceType.builtInDualCamera,AVCaptureDevice.DeviceType.builtInTrueDepthCamera], mediaType: AVMediaType.video, position: .unspecified)
                 
                 let cameras = session.devices.compactMap { $0 }
                 guard !cameras.isEmpty else { throw CameraControllerError.noCamerasAvailable }
@@ -61,7 +60,28 @@ extension CameraController {
                         camera.unlockForConfiguration()
                     }
                 }
-            } else {
+            }else if  #available(iOS 10.2, *) {
+                
+                let session = AVCaptureDevice.DiscoverySession(deviceTypes:  [AVCaptureDevice.DeviceType.builtInTelephotoCamera,.builtInWideAngleCamera,AVCaptureDevice.DeviceType.builtInDualCamera], mediaType: AVMediaType.video, position: .unspecified)
+                
+                let cameras = session.devices.compactMap { $0 }
+                guard !cameras.isEmpty else { throw CameraControllerError.noCamerasAvailable }
+                
+                for camera in cameras {
+                    if camera.position == .front {
+                        self.frontCamera = camera
+                    }
+                    
+                    if camera.position == .back {
+                        self.rearCamera = camera
+                        
+                        try camera.lockForConfiguration()
+                        camera.focusMode = .continuousAutoFocus
+                        camera.unlockForConfiguration()
+                    }
+                }
+            }
+            else {
                 // Fallback on earlier versions
             }
             
@@ -70,7 +90,7 @@ extension CameraController {
         
         func configureDeviceInputs() throws {
             guard let captureSession = self.captureSession else { throw CameraControllerError.captureSessionIsMissing }
-            
+//            captureSession.sessionPreset = AVCaptureSession.Preset.photo
             if let rearCamera = self.rearCamera {
                 self.rearCameraInput = try AVCaptureDeviceInput(device: rearCamera)
                 
@@ -93,10 +113,10 @@ extension CameraController {
         
         func configurePhotoOutput() throws {
             guard let captureSession = self.captureSession else { throw CameraControllerError.captureSessionIsMissing }
-            
+//             captureSession.sessionPreset = AVCaptureSession.Preset.photo
             self.photoOutput = AVCapturePhotoOutput()
             self.photoOutput!.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey : AVVideoCodecJPEG])], completionHandler: nil)
-            
+            captureSession.sessionPreset = AVCaptureSession.Preset.hd1920x1080
             if captureSession.canAddOutput(self.photoOutput!) { captureSession.addOutput(self.photoOutput!) }
             captureSession.startRunning()
         }
@@ -125,21 +145,22 @@ extension CameraController {
     
     func displayPreview(on view: UIView) throws {
         guard let captureSession = self.captureSession, captureSession.isRunning else { throw CameraControllerError.captureSessionIsMissing }
-        
+        captureSession.sessionPreset = AVCaptureSession.Preset.photo
         self.previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         self.previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         self.previewLayer?.connection?.videoOrientation = .portrait
         
 //        CGPoint(x: view.frame.origin.x, y: view.frame.origin.y)
         
-        self.previewLayer?.captureDevicePointConverted(fromLayerPoint: CGPoint(x: view.frame.origin.x, y: view.frame.origin.y))
-        self.previewLayer?.layerPointConverted(fromCaptureDevicePoint: CGPoint(x: view.frame.origin.x, y: view.frame.origin.y))
-        self.previewLayer?.layerRectConverted(fromMetadataOutputRect: view.frame)
+//        self.previewLayer?.captureDevicePointConverted(fromLayerPoint: CGPoint(x: view.frame.origin.x, y: view.frame.origin.y))
+//        self.previewLayer?.layerPointConverted(fromCaptureDevicePoint: CGPoint(x: view.frame.origin.x, y: view.frame.origin.y))
+//        self.previewLayer?.layerRectConverted(fromMetadataOutputRect: view.frame)
         
         var frame = view.frame
         frame.origin.y = 0
         self.previewLayer?.frame = frame
-        view.layer.insertSublayer(self.previewLayer!, at: 0)
+        view.layer.addSublayer(self.previewLayer!)
+//        view.layer.insertSublayer(self.previewLayer!, at: 0)
     }
     
     func switchCameras() throws {
