@@ -1,20 +1,24 @@
 PODS:
   - CropViewController (2.3.6)
   - iOSPhotoEditor (0.5)
+  - Kingfisher (4.8.1)
 
 DEPENDENCIES:
   - CropViewController
   - iOSPhotoEditor
+  - Kingfisher
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - CropViewController
     - iOSPhotoEditor
+    - Kingfisher
 
 SPEC CHECKSUMS:
   CropViewController: e6d4bd512d15a1709e9ddf71fe7d98ffd05dda0f
   iOSPhotoEditor: 0ddc84bcef9fe73fe8cc45ac999b89e0aa207aea
+  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
 
-PODFILE CHECKSUM: b602844fcfa84f0b4606cb7b4d3906fb922b3784
+PODFILE CHECKSUM: 21b4cf222ad3a3010da2ee4752ebd98553d7fc7a
 
 COCOAPODS: 1.5.3

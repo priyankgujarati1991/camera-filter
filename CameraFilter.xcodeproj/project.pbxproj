@@ -20,6 +20,8 @@
 		1B9DCC1F21102632003777B2 /* placeimg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B9DCC1E21102632003777B2 /* placeimg.jpg */; };
 		1BABE96821140B1C004A511A /* SavePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BABE96721140B1C004A511A /* SavePhotoViewController.swift */; };
 		1BABE96A21140B3A004A511A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BABE96921140B3A004A511A /* ViewController.swift */; };
+		1BCEB811212E889E00ADB3F0 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEB810212E889E00ADB3F0 /* VideoViewController.swift */; };
+		1BCEB813212EB4A600ADB3F0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEB812212EB4A600ADB3F0 /* CustomCell.swift */; };
 		85EF994AD745801D4D0F60A5 /* Pods_CameraFilterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4930CEBB8D211D5BBA5A9FD8 /* Pods_CameraFilterUITests.framework */; };
 		CB34DCB60999F5C5D7AD2383 /* Pods_CameraFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D64CA58A8A6D2F20F3169E /* Pods_CameraFilter.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +63,8 @@
 		1B9DCC1E21102632003777B2 /* placeimg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeimg.jpg; sourceTree = "<group>"; };
 		1BABE96721140B1C004A511A /* SavePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePhotoViewController.swift; sourceTree = "<group>"; };
 		1BABE96921140B3A004A511A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1BCEB810212E889E00ADB3F0 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		1BCEB812212EB4A600ADB3F0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		21602E0805C5F9023C4769BC /* Pods-CameraFilterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraFilterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CameraFilterUITests/Pods-CameraFilterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2B52D93D8DA1B907C41F1548 /* Pods-CameraFilterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraFilterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CameraFilterTests/Pods-CameraFilterTests.release.xcconfig"; sourceTree = "<group>"; };
 		41D64CA58A8A6D2F20F3169E /* Pods_CameraFilter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CameraFilter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +134,8 @@
 				1BABE96621140ACE004A511A /* SavePhotoViewController */,
 				1B645FE92111ACC40036EB09 /* CellFilter.swift */,
 				1B0A66262112CA2300FDD045 /* CameraController.swift */,
+				1BCEB810212E889E00ADB3F0 /* VideoViewController.swift */,
+				1BCEB812212EB4A600ADB3F0 /* CustomCell.swift */,
 				1B9DCBF421102406003777B2 /* Main.storyboard */,
 				1B9DCBF721102410003777B2 /* Assets.xcassets */,
 				1B9DCC1E21102632003777B2 /* placeimg.jpg */,
@@ -355,11 +361,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CameraFilter/Pods-CameraFilter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSPhotoEditor/iOSPhotoEditor.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CropViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSPhotoEditor.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,8 +420,10 @@
 			files = (
 				1BABE96A21140B3A004A511A /* ViewController.swift in Sources */,
 				1B645FEB2111ACC40036EB09 /* CellFilter.swift in Sources */,
+				1BCEB811212E889E00ADB3F0 /* VideoViewController.swift in Sources */,
 				1BABE96821140B1C004A511A /* SavePhotoViewController.swift in Sources */,
 				1B0A66272112CA2300FDD045 /* CameraController.swift in Sources */,
+				1BCEB813212EB4A600ADB3F0 /* CustomCell.swift in Sources */,
 				1B9DCBF121102406003777B2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,7 +598,8 @@
 			baseConfigurationReference = EDF9FD195F6467C8D2C990F6 /* Pods-CameraFilter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = V2REPBC399;
 				INFOPLIST_FILE = CameraFilter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -598,6 +609,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vsourz.ssqcrm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "adefae35-c35c-48f4-bf86-aa5e42886211";
+				PROVISIONING_PROFILE_SPECIFIER = "SSQ CRM Development";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -608,7 +621,8 @@
 			baseConfigurationReference = B3E7C733576FEE9808212F9D /* Pods-CameraFilter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = V2REPBC399;
 				INFOPLIST_FILE = CameraFilter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -618,6 +632,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vsourz.ssqcrm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d0c7db4c-15c3-4dfa-bbd3-d461be42d8da";
+				PROVISIONING_PROFILE_SPECIFIER = "Vsourz Wild card profile";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

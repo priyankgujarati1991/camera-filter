@@ -9,6 +9,7 @@ target 'CameraFilter' do
 
    pod 'CropViewController'
    pod 'iOSPhotoEditor'
+   pod 'Kingfisher'
 
   target 'CameraFilterTests' do
     inherit! :search_paths

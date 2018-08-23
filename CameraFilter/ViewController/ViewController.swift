@@ -71,8 +71,32 @@ class ViewController: UIViewController {
 ////            self.cameraView.contentInsetAdjustmentBehavior = .never
 //        } else {
 //            automaticallyAdjustsScrollViewInsets = false
-//        }
+//        }  1, 1, 2, 3, 5, 8, 13, 21
+        let arr = ["0","1", "1", "2", "3", "5", "8", "13", "21"]
+        var a = 0
+        var b = 1
+        var total = 0
+        
+        for index in arr {
+            
+            if(index == "0"){
+                b = 0
+            }
+            if(index == "1"){
+                a = 0
+                b = 1
+            }
+            
+            
+            total = a + b
+            a = b
+            b = total
+            print(total)
+            
+        }
+        
 
+        
         btnCaptureimage.layer.cornerRadius = 19.0
         
         let barbuttonItem = UIBarButtonItem(title: "Next", style:.plain, target: self, action:#selector(btnRightMenu))
@@ -166,6 +190,8 @@ class ViewController: UIViewController {
             self.cameraView.isHidden = true
         }
     }
+    
+    
     func openCamera(){
         
         self.checkPermission()
