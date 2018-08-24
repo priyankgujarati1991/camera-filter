@@ -244,32 +244,28 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="017-G4-jZL">
+                                                            <rect key="frame" x="0.0" y="40" width="320" height="250"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqm-cj-KrM">
                                                             <rect key="frame" x="0.0" y="40" width="320" height="250"/>
-                                                            <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="017-G4-jZL">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
-                                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </imageView>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstItem="017-G4-jZL" firstAttribute="leading" secondItem="dqm-cj-KrM" secondAttribute="leading" id="VG4-6s-YrE"/>
-                                                                <constraint firstAttribute="bottom" secondItem="017-G4-jZL" secondAttribute="bottom" id="bfs-Yd-gW0"/>
-                                                                <constraint firstItem="017-G4-jZL" firstAttribute="top" secondItem="dqm-cj-KrM" secondAttribute="top" id="g0k-Ss-P6Z"/>
-                                                                <constraint firstAttribute="trailing" secondItem="017-G4-jZL" secondAttribute="trailing" id="nDu-Pb-1eH"/>
-                                                            </constraints>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.14117647059999999" green="0.68627450980000004" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="017-G4-jZL" secondAttribute="trailing" id="9ZR-UJ-Ccc"/>
                                                         <constraint firstItem="dqm-cj-KrM" firstAttribute="top" secondItem="PMx-J8-89E" secondAttribute="bottom" id="Aco-B7-gcT"/>
+                                                        <constraint firstItem="017-G4-jZL" firstAttribute="leading" secondItem="lfR-o9-Qke" secondAttribute="leading" id="CWD-UC-z9H"/>
                                                         <constraint firstAttribute="trailing" secondItem="PMx-J8-89E" secondAttribute="trailing" id="Iee-nc-HaS"/>
                                                         <constraint firstItem="dqm-cj-KrM" firstAttribute="leading" secondItem="lfR-o9-Qke" secondAttribute="leading" id="Lgt-Sz-GUF"/>
                                                         <constraint firstItem="PMx-J8-89E" firstAttribute="top" secondItem="lfR-o9-Qke" secondAttribute="top" id="ZGV-mM-ZFo"/>
+                                                        <constraint firstItem="017-G4-jZL" firstAttribute="top" secondItem="PMx-J8-89E" secondAttribute="bottom" id="ezN-c4-VmH"/>
                                                         <constraint firstAttribute="bottom" secondItem="dqm-cj-KrM" secondAttribute="bottom" id="j9q-tv-zJ4"/>
                                                         <constraint firstAttribute="trailing" secondItem="dqm-cj-KrM" secondAttribute="trailing" id="ofR-G8-eCC"/>
                                                         <constraint firstItem="PMx-J8-89E" firstAttribute="leading" secondItem="lfR-o9-Qke" secondAttribute="leading" id="pMb-jp-IX4"/>
+                                                        <constraint firstAttribute="bottom" secondItem="017-G4-jZL" secondAttribute="bottom" id="w5C-sU-ZKd"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>

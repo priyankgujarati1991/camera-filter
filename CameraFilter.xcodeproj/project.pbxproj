@@ -11,6 +11,10 @@
 		1B0A66242112C62400FDD045 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0A66232112C62300FDD045 /* AVFoundation.framework */; };
 		1B0A66272112CA2300FDD045 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A66262112CA2300FDD045 /* CameraController.swift */; };
 		1B645FEB2111ACC40036EB09 /* CellFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B645FE92111ACC40036EB09 /* CellFilter.swift */; };
+		1B67EF4F212FC11C00D37C4B /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1B67EF4E212FC11C00D37C4B /* video.mp4 */; };
+		1B67EF52212FCAE500D37C4B /* VideoDataModelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B67EF51212FCAE500D37C4B /* VideoDataModelList.swift */; };
+		1B67EF54212FCAFB00D37C4B /* VideoParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B67EF53212FCAFB00D37C4B /* VideoParser.swift */; };
+		1B67EF56212FCB1100D37C4B /* VideoList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B67EF55212FCB1100D37C4B /* VideoList.json */; };
 		1B9DCBF121102406003777B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9DCBF021102406003777B2 /* AppDelegate.swift */; };
 		1B9DCBF621102406003777B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9DCBF421102406003777B2 /* Main.storyboard */; };
 		1B9DCBF821102410003777B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B9DCBF721102410003777B2 /* Assets.xcassets */; };
@@ -48,6 +52,10 @@
 		1B0A66232112C62300FDD045 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1B0A66262112CA2300FDD045 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		1B645FE92111ACC40036EB09 /* CellFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFilter.swift; sourceTree = "<group>"; };
+		1B67EF4E212FC11C00D37C4B /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		1B67EF51212FCAE500D37C4B /* VideoDataModelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDataModelList.swift; sourceTree = "<group>"; };
+		1B67EF53212FCAFB00D37C4B /* VideoParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoParser.swift; sourceTree = "<group>"; };
+		1B67EF55212FCB1100D37C4B /* VideoList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VideoList.json; sourceTree = "<group>"; };
 		1B9DCBED21102406003777B2 /* CameraFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B9DCBF021102406003777B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B9DCBF521102406003777B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +112,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B67EF50212FCAB400D37C4B /* Helper Parser */ = {
+			isa = PBXGroup;
+			children = (
+				1B67EF55212FCB1100D37C4B /* VideoList.json */,
+				1B67EF51212FCAE500D37C4B /* VideoDataModelList.swift */,
+				1B67EF53212FCAFB00D37C4B /* VideoParser.swift */,
+			);
+			path = "Helper Parser";
+			sourceTree = "<group>";
+		};
 		1B9DCBE421102406003777B2 = {
 			isa = PBXGroup;
 			children = (
@@ -136,9 +154,11 @@
 				1B0A66262112CA2300FDD045 /* CameraController.swift */,
 				1BCEB810212E889E00ADB3F0 /* VideoViewController.swift */,
 				1BCEB812212EB4A600ADB3F0 /* CustomCell.swift */,
+				1B67EF50212FCAB400D37C4B /* Helper Parser */,
 				1B9DCBF421102406003777B2 /* Main.storyboard */,
 				1B9DCBF721102410003777B2 /* Assets.xcassets */,
 				1B9DCC1E21102632003777B2 /* placeimg.jpg */,
+				1B67EF4E212FC11C00D37C4B /* video.mp4 */,
 				1B9DCBF921102410003777B2 /* LaunchScreen.storyboard */,
 				1B9DCBFC21102410003777B2 /* Info.plist */,
 			);
@@ -312,6 +332,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B9DCBFB21102410003777B2 /* LaunchScreen.storyboard in Resources */,
+				1B67EF56212FCB1100D37C4B /* VideoList.json in Resources */,
+				1B67EF4F212FC11C00D37C4B /* video.mp4 in Resources */,
 				1B9DCC1F21102632003777B2 /* placeimg.jpg in Resources */,
 				1B9DCBF821102410003777B2 /* Assets.xcassets in Resources */,
 				1B9DCBF621102406003777B2 /* Main.storyboard in Resources */,
@@ -419,7 +441,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BABE96A21140B3A004A511A /* ViewController.swift in Sources */,
+				1B67EF52212FCAE500D37C4B /* VideoDataModelList.swift in Sources */,
 				1B645FEB2111ACC40036EB09 /* CellFilter.swift in Sources */,
+				1B67EF54212FCAFB00D37C4B /* VideoParser.swift in Sources */,
 				1BCEB811212E889E00ADB3F0 /* VideoViewController.swift in Sources */,
 				1BABE96821140B1C004A511A /* SavePhotoViewController.swift in Sources */,
 				1B0A66272112CA2300FDD045 /* CameraController.swift in Sources */,
