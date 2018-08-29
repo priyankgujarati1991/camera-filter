@@ -624,17 +624,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = V2REPBC399;
+				DEVELOPMENT_TEAM = NF4YZDBTGH;
 				INFOPLIST_FILE = CameraFilter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vsourz.ssqcrm;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.citysurferapp.citysurferapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "adefae35-c35c-48f4-bf86-aa5e42886211";
-				PROVISIONING_PROFILE_SPECIFIER = "SSQ CRM Development";
+				PROVISIONING_PROFILE = "a553a28d-4880-4a40-8161-2ea475a5ea20";
+				PROVISIONING_PROFILE_SPECIFIER = "Citysurfer Developer Profile";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -647,17 +647,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = V2REPBC399;
+				DEVELOPMENT_TEAM = NF4YZDBTGH;
 				INFOPLIST_FILE = CameraFilter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vsourz.ssqcrm;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.citysurferapp.citysurferapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d0c7db4c-15c3-4dfa-bbd3-d461be42d8da";
-				PROVISIONING_PROFILE_SPECIFIER = "Vsourz Wild card profile";
+				PROVISIONING_PROFILE = "a553a28d-4880-4a40-8161-2ea475a5ea20";
+				PROVISIONING_PROFILE_SPECIFIER = "Citysurfer Developer Profile";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

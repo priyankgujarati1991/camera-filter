@@ -113,17 +113,34 @@ class ViewController: UIViewController {
         
         cameraView.isUserInteractionEnabled = true
         
-        
+        print("view Didload V1")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        print("viewwillappear V1")
         
         self.navigationController?.navigationBar.isHidden = false
         
         self.imgForFilter.isHidden = true
         self.cameraView.isHidden = false
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("viewDidAppear V1")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("viewDidDisappear V1")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("viewWillDisappear V1")
     }
     
     @objc func doubleTapOnCameraView(_ sender: UITapGestureRecognizer) {

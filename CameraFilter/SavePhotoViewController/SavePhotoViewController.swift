@@ -27,11 +27,13 @@ class SavePhotoViewController: UIViewController,PhotoEditorDelegate,CropViewCont
         // Do any additional setup after loading the view.
          let imageAfterRotate = imgChange?.rotate(radians: .pi/2)
         imgFilterView.image = imageAfterRotate
+        print("ViewDidload V2")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        print("ViewWillAppear V2")
 //        let cgimg = imgPhoto?.cgImage
        
         //let newImage  = UIImage(ciImage: (filter?.outputImage)!, scale: (imgPhoto?.scale)!, orientation:(imgPhoto?.imageOrientation)!)
@@ -42,6 +44,21 @@ class SavePhotoViewController: UIViewController,PhotoEditorDelegate,CropViewCont
         //imageFilter(filterName: filterName, cgImage:imgPhoto!)
 //            imageFilter(filterName: filterName, cgImage:imgPhoto!)
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("viewWillDisappear V2")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("viewDidDisappear V2")
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("viewDidAppear V2")
     }
     
     func imageRotate(){
