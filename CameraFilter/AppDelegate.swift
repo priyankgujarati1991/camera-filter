@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func createTable(){
-        dbManager.createTable(queryString: "create table if not exists videoData (vId integer primary key autoincrement, title text,subtitle text,imgthumb text, desc text, sourceurl text)")
+        dbManager.createTable(queryString: "create table if not exists videoData (vId integer primary key autoincrement, title text,subtitle text,thumb text, desc text, sourceurl text)")
         
     }
 }

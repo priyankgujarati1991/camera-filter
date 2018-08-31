@@ -44,6 +44,26 @@ class VideoDataModelList: NSObject {
                 } else {
                     videoDataModelList.title = ""
                 }
+                if let cString = sqlite3_column_text(statement, 1) {
+                    videoDataModelList.subtitle = String(cString: cString)
+                } else {
+                    videoDataModelList.subtitle = ""
+                }
+                if let cString = sqlite3_column_text(statement, 2) {
+                    videoDataModelList.thumb = String(cString: cString)
+                } else {
+                    videoDataModelList.thumb = ""
+                }
+                if let cString = sqlite3_column_text(statement, 3) {
+                    videoDataModelList.sourceURL = String(cString: cString)
+                } else {
+                    videoDataModelList.sourceURL = ""
+                }
+                if let cString = sqlite3_column_text(statement, 4) {
+                    videoDataModelList.desc = String(cString: cString)
+                } else {
+                    videoDataModelList.desc = ""
+                }
                 
                 arrVideoDataModelList.append(videoDataModelList)
                 }
