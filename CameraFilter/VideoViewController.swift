@@ -161,14 +161,16 @@ extension VideoViewController:UITableViewDelegate,UITableViewDataSource{
         
         guard let visibleINdexPaths = tblView.indexPathsForVisibleRows else{return}
         
-        let second = visibleINdexPaths[1];
+//        self.tblView.contentOffset = CGPoint(x: 0, y:self.tblView.frame.size.height)
         
-        if second.count == 0 {
+        if visibleINdexPaths.count == 0 {
             print("Count 0")
         }else{
             print("Play video")
-        }   
+        }
         
+        let second = visibleINdexPaths[1];
+    
         if let cell = self.tblView.cellForRow(at: second) as? CustomCell{
             
             let dataModel = self.arrGetVideoData[second.row]

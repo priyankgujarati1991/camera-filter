@@ -13,11 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     static let shared = UIApplication.shared.delegate as! AppDelegate
     static let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    var dbManager = DBManager()
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.createTable()
+        
         return true
     }
 
@@ -43,6 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func createTable(){
+        dbManager.createTable(queryString: "create table if not exists videoData (vId integer primary key autoincrement, title text,subtitle text,imgthumb text, desc text, sourceurl text)")
+        
+    }
 }
 

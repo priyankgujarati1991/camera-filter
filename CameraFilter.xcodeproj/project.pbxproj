@@ -10,6 +10,10 @@
 		0D8370D89FC43B39377176F8 /* Pods_CameraFilterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABDAB597D4B226B49A232F5 /* Pods_CameraFilterTests.framework */; };
 		1B0A66242112C62400FDD045 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0A66232112C62300FDD045 /* AVFoundation.framework */; };
 		1B0A66272112CA2300FDD045 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A66262112CA2300FDD045 /* CameraController.swift */; };
+		1B3DFB6E2139013C00A5F749 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3DFB6D2139013C00A5F749 /* DBManager.swift */; };
+		1B3DFB702139015100A5F749 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3DFB6F2139015100A5F749 /* libsqlite3.0.tbd */; };
+		1B3DFB722139015800A5F749 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3DFB712139015800A5F749 /* libsqlite3.tbd */; };
+		1B3DFB7421390F7900A5F749 /* demo.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1B3DFB7321390F7900A5F749 /* demo.sqlite */; };
 		1B645FEB2111ACC40036EB09 /* CellFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B645FE92111ACC40036EB09 /* CellFilter.swift */; };
 		1B67EF4F212FC11C00D37C4B /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1B67EF4E212FC11C00D37C4B /* video.mp4 */; };
 		1B67EF52212FCAE500D37C4B /* VideoDataModelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B67EF51212FCAE500D37C4B /* VideoDataModelList.swift */; };
@@ -51,6 +55,10 @@
 		0EDED5C4AD2D85FA48B084E6 /* Pods-CameraFilterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraFilterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CameraFilterTests/Pods-CameraFilterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B0A66232112C62300FDD045 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1B0A66262112CA2300FDD045 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		1B3DFB6D2139013C00A5F749 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		1B3DFB6F2139015100A5F749 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		1B3DFB712139015800A5F749 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		1B3DFB7321390F7900A5F749 /* demo.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = demo.sqlite; sourceTree = "<group>"; };
 		1B645FE92111ACC40036EB09 /* CellFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFilter.swift; sourceTree = "<group>"; };
 		1B67EF4E212FC11C00D37C4B /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		1B67EF51212FCAE500D37C4B /* VideoDataModelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDataModelList.swift; sourceTree = "<group>"; };
@@ -88,6 +96,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B3DFB722139015800A5F749 /* libsqlite3.tbd in Frameworks */,
+				1B3DFB702139015100A5F749 /* libsqlite3.0.tbd in Frameworks */,
 				1B0A66242112C62400FDD045 /* AVFoundation.framework in Frameworks */,
 				CB34DCB60999F5C5D7AD2383 /* Pods_CameraFilter.framework in Frameworks */,
 			);
@@ -115,9 +125,11 @@
 		1B67EF50212FCAB400D37C4B /* Helper Parser */ = {
 			isa = PBXGroup;
 			children = (
+				1B3DFB7321390F7900A5F749 /* demo.sqlite */,
 				1B67EF55212FCB1100D37C4B /* VideoList.json */,
 				1B67EF51212FCAE500D37C4B /* VideoDataModelList.swift */,
 				1B67EF53212FCAFB00D37C4B /* VideoParser.swift */,
+				1B3DFB6D2139013C00A5F749 /* DBManager.swift */,
 			);
 			path = "Helper Parser";
 			sourceTree = "<group>";
@@ -215,6 +227,8 @@
 		E8DE2F66389BD42D874A3FEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B3DFB712139015800A5F749 /* libsqlite3.tbd */,
+				1B3DFB6F2139015100A5F749 /* libsqlite3.0.tbd */,
 				1B0A66232112C62300FDD045 /* AVFoundation.framework */,
 				41D64CA58A8A6D2F20F3169E /* Pods_CameraFilter.framework */,
 				5ABDAB597D4B226B49A232F5 /* Pods_CameraFilterTests.framework */,
@@ -335,6 +349,7 @@
 				1B67EF56212FCB1100D37C4B /* VideoList.json in Resources */,
 				1B67EF4F212FC11C00D37C4B /* video.mp4 in Resources */,
 				1B9DCC1F21102632003777B2 /* placeimg.jpg in Resources */,
+				1B3DFB7421390F7900A5F749 /* demo.sqlite in Resources */,
 				1B9DCBF821102410003777B2 /* Assets.xcassets in Resources */,
 				1B9DCBF621102406003777B2 /* Main.storyboard in Resources */,
 			);
@@ -445,6 +460,7 @@
 				1B645FEB2111ACC40036EB09 /* CellFilter.swift in Sources */,
 				1B67EF54212FCAFB00D37C4B /* VideoParser.swift in Sources */,
 				1BCEB811212E889E00ADB3F0 /* VideoViewController.swift in Sources */,
+				1B3DFB6E2139013C00A5F749 /* DBManager.swift in Sources */,
 				1BABE96821140B1C004A511A /* SavePhotoViewController.swift in Sources */,
 				1B0A66272112CA2300FDD045 /* CameraController.swift in Sources */,
 				1BCEB813212EB4A600ADB3F0 /* CustomCell.swift in Sources */,
